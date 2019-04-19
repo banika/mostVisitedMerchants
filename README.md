@@ -16,7 +16,7 @@ Use the second terminal to test the service using curl commands
 - the solution loads data from the csv file and this data can be used to validate the service
 - returns 404 when the user is not found
 
-###Examples
+###### Examples
 ```
 curl localhost:8080/user/1
 curl localhost:8080/user/2
@@ -26,7 +26,7 @@ curl localhost:8080/user/3
 ## /transaction
 - accepting a JSON message as an HTTP POST.
 
-###Examples
+###### Examples
 ```
 curl -X POST localhost:8080/transaction -H 'Content-type:application/json' -d '{"user-id": "1","purchase-date" : "2019-01-01T22:45:40","merchant": "Acme Inc"}'
 
