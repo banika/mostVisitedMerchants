@@ -43,5 +43,5 @@ curl localhost:8080/actuator/env
 ```
 - Retrieves metrics
 ```
-curl localhost:8080/actuator/env
+curl localhost:8080/actuator/metrics
 ```
