@@ -3,7 +3,9 @@ package api.service.merchant;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.annotation.PostConstruct;
 
@@ -20,8 +22,13 @@ public class Controller {
     }
 
     @GetMapping("/user/{id}")
-    List<String> getRecord(@PathVariable Integer id) throws TooFewTransactionsException{
-        return repo.findByUserId(id);
+    List<String> getRecord(@PathVariable Integer id) throws Exception{
+        try {
+            return repo.findByUserId(id);
+        } catch (UserNotFoundException ex) {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "User Not Found", ex);
+        }
     }
 
     @PostConstruct
