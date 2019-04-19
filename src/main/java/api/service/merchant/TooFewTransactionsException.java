@@ -6,3 +6,4 @@ public class TooFewTransactionsException extends Exception {
         super(message);
     }
 }
+

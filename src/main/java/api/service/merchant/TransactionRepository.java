@@ -39,8 +39,11 @@ public class TransactionRepository {
         transactions.add(newTransaction);
     }
 
-    public List<String> findByUserId(Integer userId) throws TooFewTransactionsException {
-        return userMap.get(userId).mostVisited(3);
+    public List<String> findByUserId(Integer userId) throws Exception {
+        if(userMap.get(userId)!=null)
+            return userMap.get(userId).mostVisited(3);
+        else
+            throw new UserNotFoundException();
     }
 
     public void loadData() {
